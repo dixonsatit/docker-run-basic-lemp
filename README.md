@@ -1,5 +1,11 @@
 # Docker run basic (LEMP)
 
+Prepare project:
+```
+git clone  https://github.com/dixonsatit/docker-run-basic-lemp.git
+```
+cd docker-run-basic-lemp
+
 ### Create local doman (dev)
 
 change the hosts file to point the domain to your server
