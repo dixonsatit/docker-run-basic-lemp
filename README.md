@@ -25,7 +25,7 @@ docker network create web
 
 ### Run mysql
 ```
-docker run -d --name mysql -p 3306:3306 --network web --network-alias db -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=web -e MYSQL_USER=web -e MYSQL_PASSWORD=1234  mysql:8.0.1
+docker run -d --name mysql -p 3306:3306 --network web --network-alias db -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=web -e MYSQL_USER=web -e MYSQL_PASSWORD=1234 -v $(PWD)/data:/var/lib/mysql mysql:8.0.1
 ```
 
 ### Run php-fpm
