@@ -1,9 +1,20 @@
 # Docker run basic (LEMP)
 
+### Create local doman (dev)
+
+change the hosts file to point the domain to your server
+- Windows: `c:\Windows\System32\Drivers\etc\hosts`
+- Linux: `/etc/hosts`
+
+Add the following lines:
+```
+127.0.0.1   app-frontend.dev
+```
+
 ### Create Network
 
 ```
-	docker network create web
+docker network create web
 ```
 
 ### Run mysql
@@ -13,12 +24,12 @@ docker run -d --name mysql -p 3306:3306 --network web --network-alias db -e MYSQ
 
 ### Run php-fpm
 ```
-	docker run -d --name php-fpm -p 9000:9000 --network web --network-alias php -v $(PWD)/app:/var/www/html php:7-fpm-alpine
+docker run -d --name php-fpm -p 9000:9000 --network web --network-alias php -v $(PWD)/app:/var/www/html php:7-fpm-alpine
 ```
 
 ### Run nginx
 ```
-	docker run -d --name web -p 80:80 -v $(PWD)/app:/var/www/html -v $(PWD)/conf.d/default.conf:/etc/nginx/conf.d/default.conf --network web nginx:1.13-alpine
+docker run -d --name web -p 80:80 -v $(PWD)/app:/var/www/html -v $(PWD)/conf.d/default.conf:/etc/nginx/conf.d/default.conf --network web nginx:1.13-alpine
 ```
 
 ### nginx config
