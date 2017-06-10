@@ -1,4 +1,4 @@
-# Docer run basic (LEMP)
+# Docker run basic (LEMP)
 
 ### Create Network
 
